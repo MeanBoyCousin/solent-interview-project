@@ -1,4 +1,4 @@
-const aliases = require('./aliases');
+const aliases = require('./aliases')
 
 const CONFIG = {
     node: {
@@ -23,6 +23,6 @@ const CONFIG = {
         extensions: ['.js', '.jsx', '.css'],
         alias: aliases
     }
-};
+}
 
-module.exports = CONFIG;
+module.exports = CONFIG

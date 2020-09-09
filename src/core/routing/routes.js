@@ -1,9 +1,9 @@
-import Home from 'Pages/Homepage';
+import { Homepage } from 'Pages/Homepage'
 
 export default [
     {
         path: '/',
         exact: true,
-        component: Home
+        component: Homepage
     }
-];
+]

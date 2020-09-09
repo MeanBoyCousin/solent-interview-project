@@ -1,9 +1,9 @@
-const BASE_CONFIG = require('./webpack.base.config');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
-const path = require('path');
+const BASE_CONFIG = require('./webpack.base.config')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const merge = require('webpack-merge')
+const path = require('path')
 
 const CONFIG = {
     mode: 'development',
@@ -22,7 +22,9 @@ const CONFIG = {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: '!!raw-loader!' + path.resolve(__dirname, '../src/views/index.ejs'),
+            template:
+                '!!raw-loader!' +
+                path.resolve(__dirname, '../src/views/index.ejs'),
             filename: 'index.html'
         }),
         new BrowserSyncPlugin(
@@ -57,6 +59,6 @@ const CONFIG = {
             poll: 1000
         }
     }
-};
+}
 
-module.exports = merge(BASE_CONFIG, CONFIG);
+module.exports = merge(BASE_CONFIG, CONFIG)
