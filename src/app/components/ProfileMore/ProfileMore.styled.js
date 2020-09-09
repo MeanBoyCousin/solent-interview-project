@@ -44,6 +44,34 @@ const ProfileWrapper = styled.div`
         border-radius: 10px;
         border: 1px solid #565656;
     }
+
+    @media (min-width: 1024px) {
+        position: absolute;
+        height: auto;
+        padding: 5% 0;
+
+        .profile {
+            padding: 1.25%;
+        }
+
+        div {
+            width: 60%;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        h2 {
+            padding-bottom: 5%;
+        }
+
+        .icon {
+            margin: 0;
+        }
+
+        button {
+            margin-top: 5%;
+        }
+    }
 `
 
 export { ProfileWrapper }

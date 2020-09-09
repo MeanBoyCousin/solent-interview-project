@@ -8,4 +8,12 @@ const NoResults = styled.p`
     padding: 5% 0;
 `
 
-export { NoResults }
+const ProfileBasicWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5%;
+`
+
+export { NoResults, ProfileBasicWrapper }

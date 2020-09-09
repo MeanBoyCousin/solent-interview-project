@@ -27,7 +27,6 @@ const ProfileBasic = ({ picture, name, uuid, setModal }) => {
                 <>
                     <div className="thumbnail skeleton skeleton-thumbnail"></div>
                     <div className="skeleton skeleton-name"></div>
-                    <div className="skeleton arrow skeleton-arrow"></div>
                 </>
             )}
         </ProfileWrapper>

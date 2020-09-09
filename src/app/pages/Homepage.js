@@ -4,7 +4,7 @@ import { Hero } from 'Components/Hero/Hero'
 import { ProfileBasic } from 'Components/ProfileBasic/ProfileBasic'
 import { ProfileMore } from 'Components/ProfileMore/ProfileMore'
 
-import { NoResults } from './Homepage.styled'
+import { NoResults, ProfileBasicWrapper } from './Homepage.styled'
 
 const Homepage = () => {
     const [profiles, setProfiles] = useState([
@@ -46,34 +46,38 @@ const Homepage = () => {
     return (
         <>
             <Hero setQuery={setQuery} />
-            <div>
-                {filteredProfiles.map((profile, index) => {
-                    return profile ? (
-                        <ProfileBasic
-                            key={index}
-                            picture={profile.picture.thumbnail}
-                            name={`${profile.name.first} ${profile.name.last}`}
-                            uuid={profile.login.uuid}
-                            setModal={setModal}
-                        />
-                    ) : (
-                        <ProfileBasic key={index} />
-                    )
-                })}
-                {filteredProfiles.length === 0 && (
-                    <NoResults>No results found.</NoResults>
+            <div style={{ position: 'relative' }}>
+                {!modal.visible && (
+                    <ProfileBasicWrapper>
+                        {filteredProfiles.map((profile, index) => {
+                            return profile ? (
+                                <ProfileBasic
+                                    key={index}
+                                    picture={profile.picture.thumbnail}
+                                    name={`${profile.name.first} ${profile.name.last}`}
+                                    uuid={profile.login.uuid}
+                                    setModal={setModal}
+                                />
+                            ) : (
+                                <ProfileBasic key={index} />
+                            )
+                        })}
+                        {filteredProfiles.length === 0 && (
+                            <NoResults>No results found.</NoResults>
+                        )}
+                    </ProfileBasicWrapper>
+                )}
+                {modal.visible && (
+                    <ProfileMore
+                        profile={
+                            profiles.filter(
+                                profile => profile.login.uuid === modal.uuid
+                            )[0]
+                        }
+                        setModal={setModal}
+                    />
                 )}
             </div>
-            {modal.visible && (
-                <ProfileMore
-                    profile={
-                        profiles.filter(
-                            profile => profile.login.uuid === modal.uuid
-                        )[0]
-                    }
-                    setModal={setModal}
-                />
-            )}
         </>
     )
 }

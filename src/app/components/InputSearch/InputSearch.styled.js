@@ -3,14 +3,14 @@ import styled from 'styled-components'
 const InputSearchWrapper = styled.div`
     width: 85%;
     position: relative;
-    padding-bottom: 10%;
-    margin: 0 7.5%;
+    margin-bottom: 10%;
 
     img {
         position: absolute;
         top: 0;
         right: 0;
-        padding: 3.5%;
+        height: 100%;
+        transform: scale(0.7);
     }
 
     input {
@@ -22,6 +22,21 @@ const InputSearchWrapper = styled.div`
 
         &::placeholder {
             opacity: 0.38;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        width: 50%;
+        position: relative;
+        margin-bottom: 5%;
+
+        img {
+            transform: scale(0.5);
+        }
+
+        input {
+            font-size: 1.5rem;
+            padding: 2.5%;
         }
     }
 `
