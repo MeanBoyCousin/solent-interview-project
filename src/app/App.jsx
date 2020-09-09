@@ -1,9 +1,7 @@
-import { hot } from 'react-hot-loader/root';
-import React from 'react';
-import Router from 'Routing/Router';
+import { hot } from 'react-hot-loader/root'
+import React from 'react'
+import Router from 'Routing/Router'
 
-const AppRoot = () => (
-    <Router />
-);
+const AppRoot = () => <Router />
 
-export default hot(AppRoot);
+export default hot(AppRoot)

@@ -28,9 +28,6 @@
             "Pages/*": [
                 "src/app/pages/*"
             ],
-            "Redux/*": [
-                "src/core/redux/*"
-            ],
             "Routing/*": [
                 "src/core/routing/*"
             ],
