@@ -12,6 +12,7 @@ const pulseKeyframes = keyframes`
 const theme = {
     'light-grey': '#ededed',
     'dark-grey': '#565656',
+    'main-font': `'Open Sans', Arial, Helvetica, sans-serif`,
     placeholder: 0.38,
     pulse: css`
         ${pulseKeyframes} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite

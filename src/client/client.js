@@ -11,8 +11,8 @@ import { GlobalStyles } from 'App/components/GlobalStyles/GlobalStyles'
 
 const client = (
     <Router>
-        <GlobalStyles />
         <ThemeProvider theme={theme}>
+            <GlobalStyles />
             <App />
         </ThemeProvider>
     </Router>

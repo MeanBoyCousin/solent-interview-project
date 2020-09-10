@@ -8,11 +8,11 @@ const GlobalStyles = createGlobalStyle`
         font-size: 100%;
         vertical-align: baseline;
         line-height: 1;
-        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-family: ${props => props.theme['main-font']};
     }
 
     body {
-        background-color: #ededed;
+        background-color: ${props => props.theme['light-grey']};
         /* Stops scroll bar hiding when only one result in search. */
         overflow-y: scroll;
     }

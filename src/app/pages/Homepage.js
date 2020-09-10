@@ -52,14 +52,14 @@ const Homepage = () => {
                         {filteredProfiles.map((profile, index) => {
                             return profile ? (
                                 <ProfileBasic
-                                    key={index}
+                                    key={`profile-${index}`}
                                     picture={profile.picture.thumbnail}
                                     name={`${profile.name.first} ${profile.name.last}`}
                                     uuid={profile.login.uuid}
                                     setModal={setModal}
                                 />
                             ) : (
-                                <ProfileBasic key={index} />
+                                <ProfileBasic key={`profile-${index}`} />
                             )
                         })}
                         {filteredProfiles.length === 0 && (
