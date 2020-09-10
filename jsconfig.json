@@ -4,42 +4,19 @@
         "allowSyntheticDefaultImports": false,
         "baseUrl": "./",
         "paths": {
-            "App/*": [
-                "src/app/*"
-            ],
-            "Components/*": [
-                "src/app/components/*"
-            ],
-            "Content/*": [
-                "src/app/content/*"
-            ],
-            "Core/*": [
-                "src/core/*"
-            ],
-            "Global/*": [
-                "src/app/global/*"
-            ],
-            "Layout/*": [
-                "src/app/layout/*"
-            ],
-            "Modules/*": [
-                "src/app/modules/*"
-            ],
-            "Pages/*": [
-                "src/app/pages/*"
-            ],
-            "Routing/*": [
-                "src/core/routing/*"
-            ],
-            "Templates/*": [
-                "src/app/templates/*"
-            ],
-            "Theme/*": [
-                "src/app/theme/*"
-            ],
-            "Util/*": [
-                "src/core/util/*"
-            ]
+            "App/*": ["src/app/*"],
+            "Components/*": ["src/app/components/*"],
+            "Content/*": ["src/app/content/*"],
+            "Core/*": ["src/core/*"],
+            "Global/*": ["src/app/global/*"],
+            "Layout/*": ["src/app/layout/*"],
+            "Modules/*": ["src/app/modules/*"],
+            "Motion/*": ["src/app/motion/*"],
+            "Pages/*": ["src/app/pages/*"],
+            "Routing/*": ["src/core/routing/*"],
+            "Templates/*": ["src/app/templates/*"],
+            "Theme/*": ["src/app/theme/*"],
+            "Util/*": ["src/core/util/*"]
         }
     },
     "exclude": [
