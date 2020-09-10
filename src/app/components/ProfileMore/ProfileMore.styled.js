@@ -6,8 +6,8 @@ const ProfileWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100vh;
-    color: #565656;
-    background-color: #ededed;
+    color: ${props => props.theme['dark-grey']};
+    background-color: ${props => props.theme['light-grey']};
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -15,11 +15,14 @@ const ProfileWrapper = styled.div`
     justify-content: center;
 
     .profile {
+        height: 128px;
+        width: 128px;
         background: white;
         border-radius: 100%;
-        border: 1px solid #565656;
+        border: ${props => `1px solid ${props.theme['dark-grey']}`};
         padding: 2.5%;
         margin-bottom: 2.5%;
+        box-shadow: ${props => props.theme['shadow-sm']};
     }
 
     div {
@@ -32,9 +35,13 @@ const ProfileWrapper = styled.div`
         font-size: 2rem;
     }
 
-    .icon {
+    span {
         margin-top: 10%;
-        margin-bottom: 2.5%;
+
+        p {
+            margin-top: 0.75rem;
+            font-weight: 600;
+        }
     }
 
     button {
@@ -42,10 +49,12 @@ const ProfileWrapper = styled.div`
         padding: 2.5%;
         font-size: 1.5rem;
         border-radius: 10px;
-        border: 1px solid #565656;
+        border: ${props => `1px solid ${props.theme['dark-grey']}`};
+        box-shadow: ${props => props.theme['shadow-sm']};
+        cursor: pointer;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 992px) {
         position: absolute;
         height: auto;
         padding: 5% 0;
@@ -64,8 +73,19 @@ const ProfileWrapper = styled.div`
             padding-bottom: 5%;
         }
 
-        .icon {
-            margin: 0;
+        span {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+
+            .icon {
+                transform: scale(0.7);
+            }
+
+            p {
+                margin-top: 0;
+                padding-left: 0.5rem;
+            }
         }
 
         button {

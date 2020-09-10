@@ -13,6 +13,8 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         background-color: #ededed;
+        /* Stops scroll bar hiding when only one result in search. */
+        overflow-y: scroll;
     }
 `
 

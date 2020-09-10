@@ -5,6 +5,8 @@ const HeroWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Set black background as fall back if image fails to load. */
+    background-color: black;
     background-image: url('/static/images/background.jpg');
     background-position: 35% 0%;
     background-size: cover;
@@ -20,17 +22,20 @@ const HeroWrapper = styled.div`
         padding-bottom: 10%;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 992px) {
         text-align: left;
 
-        h1 {
+        h1,
+        p {
             width: 50%;
+        }
+
+        h1 {
             font-size: 4rem;
             padding: 15% 5% 2.5% 5%;
         }
 
         p {
-            width: 50%;
             font-size: 1.5rem;
             padding-bottom: 5%;
         }

@@ -21,11 +21,11 @@ const InputSearchWrapper = styled.div`
         border-radius: 10px;
 
         &::placeholder {
-            opacity: 0.38;
+            opacity: ${props => props.theme.placeholder};
         }
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 992px) {
         width: 50%;
         position: relative;
         margin-bottom: 5%;

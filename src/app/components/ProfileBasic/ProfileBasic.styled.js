@@ -1,13 +1,4 @@
-import styled, { keyframes } from 'styled-components'
-
-const pulse = keyframes`
-    0%, 100% {
-        opacity: 0.76;
-    }
-    50% {
-        opacity: 0.38;
-    }
-`
+import styled from 'styled-components'
 
 const ProfileWrapper = styled.div`
     position: relative;
@@ -17,15 +8,13 @@ const ProfileWrapper = styled.div`
     margin: 2.5% 0;
     background: white;
     border: 1px solid black;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: ${props => props.theme['shadow-sm']};
     cursor: pointer;
 
     .thumbnail {
         border-radius: 100%;
         border: 1px solid black;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: ${props => props.theme['shadow-sm']};
         margin: 2.5%;
     }
 
@@ -43,8 +32,8 @@ const ProfileWrapper = styled.div`
     }
 
     .skeleton {
-        background: grey;
-        animation: ${pulse} 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        background: ${props => props.theme['dark-grey']};
+        animation: ${props => props.theme.pulse};
     }
 
     .skeleton-thumbnail {
@@ -57,7 +46,7 @@ const ProfileWrapper = styled.div`
         height: 12px;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 992px) {
         width: 50%;
         margin: 2.5% 0 0 0;
 
