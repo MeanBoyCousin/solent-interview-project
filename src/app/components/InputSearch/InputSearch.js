@@ -11,7 +11,7 @@ const InputSearch = ({ setQuery }) => {
     return (
         <InputSearchWrapper>
             <img
-                src="/static/icons/search.svg"
+                src={`${process.env.ICONS}search.svg`}
                 alt="A search icon indicating that this input box is for searching the page content"
             />
             <input

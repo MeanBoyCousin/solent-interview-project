@@ -3,26 +3,32 @@ import { AnimatePresence } from 'framer-motion'
 
 import { Hero } from 'Components/Hero/Hero'
 import { ProfileBasic } from 'Components/ProfileBasic/ProfileBasic'
-import { ProfileMore } from 'Components/ProfileMore/ProfileMore'
+import { ProfileDetails } from 'Components/ProfileDetails/ProfileDetails'
 
 import { NoResults, ProfileBasicWrapper } from './Homepage.styled'
 
 const Homepage = () => {
+    // null values render as skeleton profiles
     const [profiles, setProfiles] = useState([
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
     ])
+
+    const [query, setQuery] = useState('')
+
+    const [modal, setModal] = useState({
+        visible: false,
+        uuid: null
+    })
 
     useEffect(() => {
         const getProfiles = async amount => {
             try {
-                const res = await fetch(
-                    `https://randomuser.me/api/?results=${amount}`
-                )
+                const res = await fetch(`${process.env.API}?results=${amount}`)
                 const data = await res.json()
                 // Sorted names by first name (a-z)
                 data.results.sort((a, b) => {
@@ -31,27 +37,21 @@ const Homepage = () => {
                 setProfiles(data.results)
             } catch (error) {
                 console.error(error)
-                // A pop-up error message would be good here instructing the user to refresh.
+                // A pop-up error message would be good here instructing the
+                // user to refresh.
             }
         }
 
         getProfiles(10)
     }, [])
 
-    const [query, setQuery] = useState('')
-
     // prettier-ignore
-    const filteredProfiles = profiles.every(profile => profile === undefined)
+    const filteredProfiles = profiles.every(profile => profile === null)
         ? profiles
         : profiles.filter(profile => {
             const fullName = `${profile.name.first} ${profile.name.last}`
             return fullName.toLowerCase().includes(query)
         })
-
-    const [modal, setModal] = useState({
-        visible: false,
-        uuid: undefined
-    })
 
     return (
         <>
@@ -79,7 +79,7 @@ const Homepage = () => {
                 )}
                 <AnimatePresence>
                     {modal.visible && (
-                        <ProfileMore
+                        <ProfileDetails
                             profile={
                                 profiles.filter(
                                     profile => profile.login.uuid === modal.uuid

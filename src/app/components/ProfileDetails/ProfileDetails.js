@@ -2,9 +2,9 @@ import React from 'react'
 import dayjs from 'dayjs'
 
 import { largeYInOut } from 'Motion/variants'
-import { ProfileWrapper } from './ProfileMore.styled'
+import { ProfileWrapper } from './ProfileDetails.styled'
 
-const ProfileMore = ({
+const ProfileDetails = ({
     profile: { cell, dob, email, name, picture },
     setModal
 }) => {
@@ -25,7 +25,7 @@ const ProfileMore = ({
                 <span>
                     <img
                         className="icon"
-                        src="/static/icons/email.svg"
+                        src={`${process.env.ICONS}email.svg`}
                         alt="An icon of an envelope to symbolise a users email address"
                     />
                     <p>{email}</p>
@@ -33,7 +33,7 @@ const ProfileMore = ({
                 <span>
                     <img
                         className="icon"
-                        src="/static/icons/dob.svg"
+                        src={`${process.env.ICONS}dob.svg`}
                         alt="An icon of a crown to symbolise a users date of birth"
                     />
                     <p>{dayjs(dob.date).format('D/M/YYYY')}</p>
@@ -41,7 +41,7 @@ const ProfileMore = ({
                 <span>
                     <img
                         className="icon"
-                        src="/static/icons/phone.svg"
+                        src={`${process.env.ICONS}phone.svg`}
                         alt="An icon of a phone to symbolise a users phone number"
                     />
                     <p>{cell}</p>
@@ -58,4 +58,4 @@ const ProfileMore = ({
     )
 }
 
-export { ProfileMore }
+export { ProfileDetails }

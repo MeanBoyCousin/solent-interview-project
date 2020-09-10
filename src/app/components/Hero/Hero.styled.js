@@ -7,7 +7,7 @@ const HeroWrapper = styled.div`
     align-items: center;
     /* Set black background as fall back if image fails to load. */
     background-color: black;
-    background-image: url('/static/images/background.jpg');
+    background-image: url('${process.env.IMAGES}background.jpg');
     background-position: 35% 0%;
     background-size: cover;
     color: white;

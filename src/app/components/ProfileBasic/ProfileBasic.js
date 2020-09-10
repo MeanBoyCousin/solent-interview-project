@@ -24,7 +24,7 @@ const ProfileBasic = ({ picture, name, uuid, setModal }) => {
                     <p>{name}</p>
                     <img
                         className="arrow"
-                        src="/static/icons/circle-arrow.svg"
+                        src={`${process.env.ICONS}circle-arrow.svg`}
                         alt="An arrow pointing right enclosed inside a circle"
                     />
                 </>

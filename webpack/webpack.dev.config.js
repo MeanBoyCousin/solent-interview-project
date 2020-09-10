@@ -1,9 +1,18 @@
 const BASE_CONFIG = require('./webpack.base.config')
+const webpack = require('webpack')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
 const path = require('path')
+const dotenv = require('dotenv')
+
+const env = dotenv.config().parsed
+
+const envKeys = Object.keys(env).reduce((acc, curr) => {
+    acc[`process.env.${curr}`] = JSON.stringify(env[curr])
+    return acc
+}, {})
 
 const CONFIG = {
     mode: 'development',
@@ -43,7 +52,8 @@ const CONFIG = {
                 from: path.resolve(__dirname, '../public'),
                 to: path.resolve(__dirname, '../dist/static')
             }
-        ])
+        ]),
+        new webpack.DefinePlugin(envKeys)
     ],
     devServer: {
         host: '0.0.0.0',
