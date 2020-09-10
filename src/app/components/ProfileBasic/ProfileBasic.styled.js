@@ -10,8 +10,19 @@ const ProfileWrapper = styled.div`
     border: 1px solid black;
     box-shadow: ${props => props.theme['shadow-sm']};
     cursor: pointer;
+    transition: ${props => props.theme['ease-100']};
+
+    &:hover {
+        box-shadow: ${props => props.theme['shadow-md']};
+    }
+
+    &:active {
+        box-shadow: ${props => props.theme['shadow-lg']};
+    }
 
     .thumbnail {
+        width: 48px;
+        height: 48px;
         border-radius: 100%;
         border: 1px solid black;
         box-shadow: ${props => props.theme['shadow-sm']};
@@ -44,6 +55,16 @@ const ProfileWrapper = styled.div`
     .skeleton-name {
         width: 50%;
         height: 12px;
+    }
+
+    @media (min-width: 768px) {
+        p {
+            font-size: 0.9rem;
+        }
+
+        .arrow {
+            transform: scale(0.6);
+        }
     }
 
     @media (min-width: 992px) {

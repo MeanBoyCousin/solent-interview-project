@@ -22,7 +22,7 @@ const ProfileWrapper = styled.div`
         border: ${props => `1px solid ${props.theme['dark-grey']}`};
         padding: 2.5%;
         margin-bottom: 2.5%;
-        box-shadow: ${props => props.theme['shadow-sm']};
+        box-shadow: ${props => props.theme['shadow-md']};
     }
 
     div {
@@ -47,11 +47,33 @@ const ProfileWrapper = styled.div`
     button {
         margin-top: 10%;
         padding: 2.5%;
+        color: ${props => props.theme['dark-grey']};
         font-size: 1.5rem;
         border-radius: 10px;
         border: ${props => `1px solid ${props.theme['dark-grey']}`};
         box-shadow: ${props => props.theme['shadow-sm']};
         cursor: pointer;
+        transition: ${props => props.theme['ease-100']};
+
+        &:hover {
+            box-shadow: ${props => props.theme['shadow-md']};
+        }
+
+        &:active {
+            box-shadow: ${props => props.theme['shadow-lg']};
+        }
+    }
+
+    @media (min-width: 768px) {
+        span {
+            .icon {
+                transform: scale(0.85);
+            }
+        }
+
+        button {
+            margin-top: 10%;
+        }
     }
 
     @media (min-width: 992px) {
@@ -90,6 +112,7 @@ const ProfileWrapper = styled.div`
 
         button {
             margin-top: 5%;
+            padding: 1.5%;
         }
     }
 `

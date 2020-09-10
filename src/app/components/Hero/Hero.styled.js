@@ -22,6 +22,18 @@ const HeroWrapper = styled.div`
         padding-bottom: 10%;
     }
 
+    @media (min-width: 768px) {
+        text-align: left;
+
+        h1 {
+            font-size: 3.25rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+        }
+    }
+
     @media (min-width: 992px) {
         text-align: left;
 

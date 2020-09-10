@@ -25,6 +25,17 @@ const InputSearchWrapper = styled.div`
         }
     }
 
+    @media (min-width: 768px) {
+        img {
+            transform: scale(0.6);
+        }
+
+        input {
+            font-size: 1.25rem;
+            padding: 2.5%;
+        }
+    }
+
     @media (min-width: 992px) {
         width: 50%;
         position: relative;
