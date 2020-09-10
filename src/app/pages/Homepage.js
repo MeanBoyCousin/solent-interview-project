@@ -24,6 +24,10 @@ const Homepage = () => {
                     `https://randomuser.me/api/?results=${amount}`
                 )
                 const data = await res.json()
+                // Sorted names by first name (a-z)
+                data.results.sort((a, b) => {
+                    return a.name.first.localeCompare(b.name.first)
+                })
                 setProfiles(data.results)
             } catch (error) {
                 console.error(error)
