@@ -1,6 +1,7 @@
 import React from 'react'
 import dayjs from 'dayjs'
 
+import { largeYInOut } from 'Motion/variants'
 import { ProfileWrapper } from './ProfileMore.styled'
 
 const ProfileMore = ({
@@ -8,7 +9,12 @@ const ProfileMore = ({
     setModal
 }) => {
     return (
-        <ProfileWrapper>
+        <ProfileWrapper
+            variants={largeYInOut}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+        >
             <img
                 className="profile"
                 src={picture.large}

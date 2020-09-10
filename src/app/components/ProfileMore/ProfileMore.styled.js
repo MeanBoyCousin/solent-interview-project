@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const ProfileWrapper = styled.div`
+const ProfileWrapper = styled(motion.div)`
     position: fixed;
     top: 0;
     left: 0;
@@ -77,7 +78,7 @@ const ProfileWrapper = styled.div`
     }
 
     @media (min-width: 992px) {
-        position: absolute;
+        position: relative;
         height: auto;
         padding: 5% 0;
 

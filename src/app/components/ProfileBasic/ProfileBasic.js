@@ -1,10 +1,15 @@
 import React from 'react'
 
+import { mediumXInOut } from 'Motion/variants'
 import { ProfileWrapper } from './ProfileBasic.styled'
 
 const ProfileBasic = ({ picture, name, uuid, setModal }) => {
     return (
         <ProfileWrapper
+            variants={mediumXInOut}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             onClick={() => {
                 setModal({ visible: true, uuid: uuid })
             }}

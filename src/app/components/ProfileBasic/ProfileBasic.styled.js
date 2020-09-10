@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const ProfileWrapper = styled.div`
+const ProfileWrapper = styled(motion.div)`
     position: relative;
     display: flex;
     align-items: center;

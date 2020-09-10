@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 
 import { Hero } from 'Components/Hero/Hero'
 import { ProfileBasic } from 'Components/ProfileBasic/ProfileBasic'
@@ -18,11 +19,16 @@ const Homepage = () => {
 
     useEffect(() => {
         const getProfiles = async amount => {
-            const res = await fetch(
-                `https://randomuser.me/api/?results=${amount}`
-            )
-            const data = await res.json()
-            setProfiles(data.results)
+            try {
+                const res = await fetch(
+                    `https://randomuser.me/api/?results=${amount}`
+                )
+                const data = await res.json()
+                setProfiles(data.results)
+            } catch (error) {
+                console.error(error)
+                // A pop-up error message would be good here instructing the user to refresh.
+            }
         }
 
         getProfiles(10)
@@ -46,7 +52,7 @@ const Homepage = () => {
     return (
         <>
             <Hero setQuery={setQuery} />
-            <div style={{ position: 'relative' }}>
+            <div style={{ position: 'relative', overflow: 'hidden' }}>
                 {!modal.visible && (
                     <ProfileBasicWrapper>
                         {filteredProfiles.map((profile, index) => {
@@ -67,16 +73,18 @@ const Homepage = () => {
                         )}
                     </ProfileBasicWrapper>
                 )}
-                {modal.visible && (
-                    <ProfileMore
-                        profile={
-                            profiles.filter(
-                                profile => profile.login.uuid === modal.uuid
-                            )[0]
-                        }
-                        setModal={setModal}
-                    />
-                )}
+                <AnimatePresence>
+                    {modal.visible && (
+                        <ProfileMore
+                            profile={
+                                profiles.filter(
+                                    profile => profile.login.uuid === modal.uuid
+                                )[0]
+                            }
+                            setModal={setModal}
+                        />
+                    )}
+                </AnimatePresence>
             </div>
         </>
     )

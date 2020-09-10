@@ -14,6 +14,7 @@
     "dependencies": {
         "core-js": "^3.6.5",
         "dayjs": "^1.8.35",
+        "framer-motion": "^2.6.10",
         "immutable": "^4.0.0-rc.12",
         "isomorphic-fetch": "^2.2.1",
         "lodash.debounce": "^4.0.8",
