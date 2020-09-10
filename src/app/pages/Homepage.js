@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import { Hero } from 'Components/Hero/Hero'
 import { ProfileBasic } from 'Components/ProfileBasic/ProfileBasic'
 import { ProfileDetails } from 'Components/ProfileDetails/ProfileDetails'
+import { UserWarning } from 'Components/UserWarning/UserWarning'
 
 import { NoResults, ProfileBasicWrapper } from './Homepage.styled'
 
@@ -25,6 +26,8 @@ const Homepage = () => {
         uuid: null
     })
 
+    const [warningVisible, setWarningVisible] = useState(false)
+
     useEffect(() => {
         const getProfiles = async amount => {
             try {
@@ -37,8 +40,7 @@ const Homepage = () => {
                 setProfiles(data.results)
             } catch (error) {
                 console.error(error)
-                // A pop-up error message would be good here instructing the
-                // user to refresh.
+                setWarningVisible(true)
             }
         }
 
@@ -90,6 +92,7 @@ const Homepage = () => {
                     )}
                 </AnimatePresence>
             </div>
+            {warningVisible && <UserWarning />}
         </>
     )
 }
