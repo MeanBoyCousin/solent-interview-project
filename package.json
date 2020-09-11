@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "webpack-dev-server --config ./webpack/webpack.dev.config.js"
+        "start": "webpack-dev-server --config ./webpack/webpack.dev.config.js",
+        "test": "jest"
     },
     "repository": {
         "type": "git"
@@ -35,7 +36,11 @@
         "@babel/preset-react": "^7.10.4",
         "@babel/register": "^7.11.5",
         "@hot-loader/react-dom": "^16.13.0",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.0.2",
+        "@testing-library/user-event": "^12.1.4",
         "babel-eslint": "^10.1.0",
+        "babel-jest": "^26.3.0",
         "babel-loader": "^8.1.0",
         "babel-plugin-webpack-alias": "^2.1.2",
         "browser-sync": "^2.26.12",
@@ -43,7 +48,9 @@
         "copy-webpack-plugin": "^5.1.2",
         "cross-env": "^6.0.3",
         "html-webpack-plugin": "^3.2.0",
+        "jest": "^26.4.2",
         "raw-loader": "^4.0.1",
+        "react-test-renderer": "^16.13.1",
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0",
