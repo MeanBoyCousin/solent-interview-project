@@ -29,6 +29,9 @@ const Homepage = () => {
     const [warningVisible, setWarningVisible] = useState(false)
 
     useEffect(() => {
+        // Allows cancellation of async call if component un-mounts
+        let ignore = false
+
         const getProfiles = async amount => {
             try {
                 const res = await fetch(`${process.env.API}?results=${amount}`)
@@ -37,7 +40,7 @@ const Homepage = () => {
                 data.results.sort((a, b) => {
                     return a.name.first.localeCompare(b.name.first)
                 })
-                setProfiles(data.results)
+                if (!ignore) setProfiles(data.results)
             } catch (error) {
                 console.error(error)
                 setWarningVisible(true)
@@ -45,6 +48,9 @@ const Homepage = () => {
         }
 
         getProfiles(10)
+        return () => {
+            ignore = true
+        }
     }, [])
 
     // prettier-ignore
