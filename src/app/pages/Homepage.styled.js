@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const NoResults = styled.p`
+const NoResults = styled(motion.p)`
     width: 100%;
     text-align: center;
     opacity: ${props => props.theme.placeholder};

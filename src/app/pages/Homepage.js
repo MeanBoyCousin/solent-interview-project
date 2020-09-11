@@ -8,6 +8,10 @@ import { UserWarning } from 'Components/UserWarning/UserWarning'
 
 import { NoResults, ProfileBasicWrapper } from './Homepage.styled'
 
+import { filterProfiles } from './Homepage.helpers'
+
+import { smallOpacity } from 'Motion/variants'
+
 const Homepage = () => {
     // null values render as skeleton profiles
     const [profiles, setProfiles] = useState([
@@ -53,13 +57,7 @@ const Homepage = () => {
         }
     }, [])
 
-    // prettier-ignore
-    const filteredProfiles = profiles.every(profile => profile === null)
-        ? profiles
-        : profiles.filter(profile => {
-            const fullName = `${profile.name.first} ${profile.name.last}`
-            return fullName.toLowerCase().includes(query)
-        })
+    const filteredProfiles = filterProfiles(profiles, query)
 
     return (
         <>
@@ -67,21 +65,32 @@ const Homepage = () => {
             <div style={{ position: 'relative', overflow: 'hidden' }}>
                 {!modal.visible && (
                     <ProfileBasicWrapper>
-                        {filteredProfiles.map((profile, index) => {
-                            return profile ? (
-                                <ProfileBasic
-                                    key={`profile-${index}`}
-                                    picture={profile.picture.thumbnail}
-                                    name={`${profile.name.first} ${profile.name.last}`}
-                                    uuid={profile.login.uuid}
-                                    setModal={setModal}
-                                />
-                            ) : (
-                                <ProfileBasic key={`profile-${index}`} />
-                            )
-                        })}
+                        <AnimatePresence>
+                            {filteredProfiles.map((profile, index) => {
+                                return profile ? (
+                                    <ProfileBasic
+                                        key={`profile-${index}`}
+                                        picture={profile.picture.thumbnail}
+                                        name={`${profile.name.first} ${profile.name.last}`}
+                                        uuid={profile.login.uuid}
+                                        setModal={setModal}
+                                    />
+                                ) : (
+                                    <ProfileBasic key={`profile-${index}`} />
+                                )
+                            })}
+                        </AnimatePresence>
                         {filteredProfiles.length === 0 && (
-                            <NoResults>No results found.</NoResults>
+                            <AnimatePresence>
+                                <NoResults
+                                    variants={smallOpacity}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                >
+                                    No results found.
+                                </NoResults>
+                            </AnimatePresence>
                         )}
                     </ProfileBasicWrapper>
                 )}
