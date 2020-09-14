@@ -1,14 +1,12 @@
 # Interview practical test
 
-## Setup
+## Scripts
 
-You'll need to have [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/) and a code editor like [Visual Studio Code](https://code.visualstudio.com/) installed. ✅
+Install NPM modules with `npm install`
 
-Clone this project using git. ✅
+Run the project with `npm start`
 
-Install NPM modules with `npm install` ✅
-
-Run the project with `npm start` ✅
+Run tests with `npm test`
 
 ## Instructions
 
@@ -32,4 +30,4 @@ You should use Styled Components for styling your components. You can find docum
 
 ## Submission
 
-Once complete, push them up to a repository you've created on a git hosting platform of your choice.
+Once complete, push them up to a repository you've created on a git hosting platform of your choice. ✅

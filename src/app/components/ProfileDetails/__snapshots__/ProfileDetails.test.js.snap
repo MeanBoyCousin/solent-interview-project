@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileDetails component should render with correct profile details 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa dMxzUZ"
+    style="opacity: 0.2; transform: translateY(30px) translateZ(0);"
+  >
+    <img
+      alt="The profile picture for the member of staff you selected"
+      class="profile"
+      src="https://randomuser.me/api/portraits/women/55.jpg"
+    />
+    <h2>
+      Nella Aalto
+    </h2>
+    <div>
+      <span>
+        <img
+          alt="An icon of an envelope to symbolise a users email address"
+          class="icon"
+          src="/static/icons/email.svg"
+        />
+        <p>
+          nella.aalto@example.com
+        </p>
+      </span>
+      <span>
+        <img
+          alt="An icon of a crown to symbolise a users date of birth"
+          class="icon"
+          src="/static/icons/dob.svg"
+        />
+        <p>
+          30/10/1952
+        </p>
+      </span>
+      <span>
+        <img
+          alt="An icon of a phone to symbolise a users phone number"
+          class="icon"
+          src="/static/icons/phone.svg"
+        />
+        <p>
+          042-458-19-31
+        </p>
+      </span>
+    </div>
+    <button>
+      Close
+    </button>
+  </div>
+</DocumentFragment>
+`;

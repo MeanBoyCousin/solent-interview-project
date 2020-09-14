@@ -46,7 +46,6 @@ const Homepage = () => {
                 })
                 if (!ignore) setProfiles(data.results)
             } catch (error) {
-                console.error(error)
                 setWarningVisible(true)
             }
         }

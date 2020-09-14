@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserWarning component should render with correct warning message 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa iABdWD"
+    style="opacity: 0.2; transform: translateY(100%) translateZ(0);"
+  >
+    <p>
+      There was a problem fetching the staff profiles. Please refresh to try again.
+    </p>
+  </div>
+</DocumentFragment>
+`;

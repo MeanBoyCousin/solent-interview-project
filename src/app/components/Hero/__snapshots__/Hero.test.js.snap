@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero component should render with correct elements 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa duMbDV"
+  >
+    <h1>
+      Find a member of staff
+    </h1>
+    <p>
+      Use the search box to get started
+    </p>
+    <div
+      class="sc-bwzfXH cAdroO"
+    >
+      <img
+        alt="A search icon indicating that this input box is for searching the page content"
+        src="/static/icons/search.svg"
+      />
+      <input
+        placeholder="Start typing..."
+        type="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

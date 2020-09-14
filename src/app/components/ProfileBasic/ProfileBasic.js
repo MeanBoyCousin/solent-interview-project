@@ -30,7 +30,10 @@ const ProfileBasic = ({ picture, name, uuid, setModal }) => {
                 </>
             ) : (
                 <>
-                    <div className="thumbnail skeleton skeleton-thumbnail"></div>
+                    <div
+                        data-testid="skeleton"
+                        className="thumbnail skeleton skeleton-thumbnail"
+                    ></div>
                     <div className="skeleton skeleton-name"></div>
                 </>
             )}
