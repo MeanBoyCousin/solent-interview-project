@@ -39,7 +39,7 @@ describe('Homepage component', () => {
         expect(skeletonProfiles.length).toEqual(6)
     })
 
-    test('should render 10 profiles', async () => {
+    test('should render 10 profiles in alphabetical order by first name', async () => {
         act(() => {
             fetch.once(JSON.stringify(mockResponse))
             render(<Homepage />)
@@ -55,9 +55,11 @@ describe('Homepage component', () => {
         expect(fetch).toHaveBeenCalledWith(
             'https://randomuser.me/api/?results=10'
         )
+        expect(profiles[0].nextSibling.innerHTML).toEqual('Emilie Madsen')
+        expect(profiles[9].nextSibling.innerHTML).toEqual('آرسین گلشن')
     })
 
-    test('should render `no results found` message if filter does not match any profiles', async () => {
+    test('should render `no results found` message only if filter does not match any profiles', async () => {
         act(() => {
             fetch.once(JSON.stringify(mockResponse))
             render(<Homepage />)
@@ -71,6 +73,58 @@ describe('Homepage component', () => {
             exact: true
         })
         expect(noResultsMessage).toBeInTheDocument()
+
+        userEvent.type(input, '{selectall}{backspace}')
+
+        await waitForElementToBeRemoved(noResultsMessage)
+
+        expect(noResultsMessage).not.toBeInTheDocument()
+    })
+
+    test('ProfileBasic components should mount and un-mount', async () => {
+        await act(async () => {
+            fetch.once(JSON.stringify(mockResponse))
+            render(<Homepage />)
+        })
+
+        const profilesInitial = await screen.findAllByAltText(
+            /The profile picture for /i,
+            {
+                exact: true
+            }
+        )
+        expect(profilesInitial.length).toEqual(10)
+        expect(profilesInitial[0]).toBeInTheDocument()
+
+        act(() => {
+            userEvent.click(profilesInitial[0].closest('div'))
+        })
+
+        waitForElementToBeRemoved(profilesInitial).then(() => {
+            expect(profilesInitial.length).toEqual(0)
+            expect(profilesInitial[0]).not.toBeInTheDocument()
+        })
+
+        act(() => {
+            const closeButton = screen.getByRole('button', {
+                name: /Close/i,
+                exact: true
+            })
+            userEvent.click(closeButton)
+        })
+
+        await waitForElementToBeRemoved(
+            screen.getByAltText(/the member of staff you selected/i)
+        )
+
+        const profilesAfterModalClose = await screen.findAllByAltText(
+            /The profile picture for /i,
+            {
+                exact: true
+            }
+        )
+        expect(profilesAfterModalClose.length).toEqual(10)
+        expect(profilesAfterModalClose[0]).toBeInTheDocument()
     })
 
     test('ProfileDetails component should mount and un-mount', async () => {
@@ -83,7 +137,7 @@ describe('Homepage component', () => {
                     exact: true
                 }
             )
-            userEvent.click(profiles[0].closest('div'))
+            userEvent.click(profiles[1].closest('div'))
         })
 
         const selectedProfileImage = screen.getByAltText(
@@ -91,6 +145,7 @@ describe('Homepage component', () => {
         )
         expect(selectedProfileImage).toBeInTheDocument()
         expect(selectedProfileImage).toHaveClass('profile')
+        expect(selectedProfileImage.nextSibling.innerHTML).toEqual('Iina Couri')
 
         act(() => {
             const closeButton = screen.getByRole('button', {
@@ -102,5 +157,18 @@ describe('Homepage component', () => {
 
         await waitForElementToBeRemoved(selectedProfileImage)
         expect(selectedProfileImage).not.toBeInTheDocument()
+    })
+
+    test('should not render UserWarning component on load', async () => {
+        await act(async () => {
+            fetch.once(JSON.stringify(mockResponse))
+            render(<Homepage />)
+        })
+
+        const warningMessage = screen.queryByText(
+            /There was a problem fetching the staff profiles. Please refresh to try again./i,
+            { selector: 'p', exact: true }
+        )
+        expect(warningMessage).toBeNull()
     })
 })

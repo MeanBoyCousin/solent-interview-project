@@ -6,7 +6,11 @@ import { ProfileBasic } from 'Components/ProfileBasic/ProfileBasic'
 import { ProfileDetails } from 'Components/ProfileDetails/ProfileDetails'
 import { UserWarning } from 'Components/UserWarning/UserWarning'
 
-import { NoResults, ProfileBasicWrapper } from './Homepage.styled'
+import {
+    NoResults,
+    ProfileBasicWrapper,
+    ProfilesWrapper
+} from './Homepage.styled'
 
 import { filterProfiles } from './Homepage.helpers'
 
@@ -61,8 +65,8 @@ const Homepage = () => {
     return (
         <>
             <Hero setQuery={setQuery} />
-            <div style={{ position: 'relative', overflow: 'hidden' }}>
-                {!modal.visible && (
+            <ProfilesWrapper>
+                {modal.visible === false && (
                     <ProfileBasicWrapper>
                         <AnimatePresence>
                             {filteredProfiles.map((profile, index) => {
@@ -94,7 +98,7 @@ const Homepage = () => {
                     </ProfileBasicWrapper>
                 )}
                 <AnimatePresence>
-                    {modal.visible && (
+                    {modal.visible === true && (
                         <ProfileDetails
                             profile={
                                 profiles.filter(
@@ -105,7 +109,7 @@ const Homepage = () => {
                         />
                     )}
                 </AnimatePresence>
-            </div>
+            </ProfilesWrapper>
             {warningVisible && <UserWarning />}
         </>
     )

@@ -17,4 +17,9 @@ const ProfileBasicWrapper = styled.div`
     margin-top: 2.5%;
 `
 
-export { NoResults, ProfileBasicWrapper }
+const ProfilesWrapper = styled.div`
+    position: relative;
+    overflow: hidden;
+`
+
+export { NoResults, ProfileBasicWrapper, ProfilesWrapper }

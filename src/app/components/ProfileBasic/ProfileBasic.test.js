@@ -9,12 +9,33 @@ import mockResponse from '../../../__mocks__/apiResponse.json'
 afterEach(cleanup)
 
 describe('ProfileBasic component', () => {
+    const profile = mockResponse.results[0]
+
     test('should render with correct profile details', () => {
-        const profile = mockResponse.results[0]
         const { asFragment } = render(
             <ProfileBasic
                 picture={profile.picture.thumbnail}
                 name={`${profile.name.first} ${profile.name.last}`}
+                uuid={profile.login.uuid}
+            />
+        )
+        expect(asFragment()).toMatchSnapshot()
+    })
+
+    test('should render with skeleton elements if no profile picture is provided', () => {
+        const { asFragment } = render(
+            <ProfileBasic
+                name={`${profile.name.first} ${profile.name.last}`}
+                uuid={profile.login.uuid}
+            />
+        )
+        expect(asFragment()).toMatchSnapshot()
+    })
+
+    test('should render with skeleton elements if no profile name is provided', () => {
+        const { asFragment } = render(
+            <ProfileBasic
+                picture={profile.picture.thumbnail}
                 uuid={profile.login.uuid}
             />
         )

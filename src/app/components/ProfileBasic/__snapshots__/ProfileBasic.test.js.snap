@@ -39,3 +39,37 @@ exports[`ProfileBasic component should render with skeleton elements if no profi
   </div>
 </DocumentFragment>
 `;
+
+exports[`ProfileBasic component should render with skeleton elements if no profile name is provided 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa QZupl"
+    style="opacity: 0.2; transform: translateX(30px) translateZ(0);"
+  >
+    <div
+      class="thumbnail skeleton skeleton-thumbnail"
+      data-testid="skeleton"
+    />
+    <div
+      class="skeleton skeleton-name"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ProfileBasic component should render with skeleton elements if no profile picture is provided 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa QZupl"
+    style="opacity: 0.2; transform: translateX(30px) translateZ(0);"
+  >
+    <div
+      class="thumbnail skeleton skeleton-thumbnail"
+      data-testid="skeleton"
+    />
+    <div
+      class="skeleton skeleton-name"
+    />
+  </div>
+</DocumentFragment>
+`;

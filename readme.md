@@ -8,6 +8,8 @@ Run the project with `npm start`
 
 Run tests with `npm test`
 
+Run mutation tests with `npm run mutate`
+
 ## Instructions
 
 The aim of this task is to produce a profile listing component that uses the [RandomUser](https://randomuser.me/) API. ✅
