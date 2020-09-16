@@ -10,6 +10,7 @@ exports[`InputSearch component should render input field of type text with searc
       src="/static/icons/search.svg"
     />
     <input
+      aria-label="Search for a member of staff"
       placeholder="Start typing..."
       type="text"
     />

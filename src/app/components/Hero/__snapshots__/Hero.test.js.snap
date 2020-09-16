@@ -4,6 +4,7 @@ exports[`Hero component should render with correct elements 1`] = `
 <DocumentFragment>
   <div
     class="sc-bdVaJa duMbDV"
+    role="banner"
   >
     <h1>
       Find a member of staff
@@ -19,6 +20,7 @@ exports[`Hero component should render with correct elements 1`] = `
         src="/static/icons/search.svg"
       />
       <input
+        aria-label="Search for a member of staff"
         placeholder="Start typing..."
         type="text"
       />

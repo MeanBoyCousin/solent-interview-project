@@ -17,6 +17,7 @@ const InputSearch = ({ setQuery }) => {
             <input
                 type="text"
                 placeholder="Start typing..."
+                aria-label="Search"
                 onKeyUp={e => {
                     e.persist()
                     debounceSetQuery(e)

@@ -65,7 +65,7 @@ const Homepage = () => {
     return (
         <>
             <Hero setQuery={setQuery} />
-            <ProfilesWrapper>
+            <ProfilesWrapper role="main">
                 {modal.visible === false && (
                     <ProfileBasicWrapper>
                         <AnimatePresence>

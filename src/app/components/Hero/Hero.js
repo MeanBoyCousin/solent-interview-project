@@ -5,7 +5,7 @@ import { InputSearch } from '../InputSearch/InputSearch'
 
 const Hero = ({ setQuery }) => {
     return (
-        <HeroWrapper>
+        <HeroWrapper role="banner">
             <h1>Find a member of staff</h1>
             <p>Use the search box to get started</p>
             <InputSearch setQuery={setQuery} />
